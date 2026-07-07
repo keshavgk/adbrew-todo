@@ -1,5 +1,6 @@
 # set base image (host OS)
-FROM python:3.8
+FROM python:3.8-bullseye
+#-bullseye to match base os and to resolve debian
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
@@ -20,8 +21,7 @@ RUN apt-get install -y mongodb-org
 # Install Yarn
 RUN apt-get install -y yarn
 
-# Install PIP
-RUN easy_install pip
+
 
 
 ENV ENV_TYPE staging
